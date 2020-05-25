@@ -1,0 +1,96 @@
+<% if (user) {%>
+<p class="paragrafUser">Bine ai venit, <%= user %> </p>
+<p class="paragrafUser">Continua de unde ai ramas, sau adauga task-uri noi</p>
+
+<div>
+    <a href="/inserare-bd">
+        <button type="button" class="Button">
+            Inserare BD
+        </button>
+    </a>
+</div>
+
+
+<div class="feature-layout">
+    <div class="feature-item">
+        <h2>To Do</h2>
+        <p>To tasks that need to be taken care of</p>
+        <% for(let i =0; i< selectFromDB.length; i++) { %>
+        <% if(selectFromDB[i].status == "ToDo") {%>
+        <div class="feature-item-task">
+            <h3><%= selectFromDB[i].titlu %> </h3>
+            <p><%= selectFromDB[i].descriere %></p>
+            <a href="/update-bd-<%=selectFromDB[i].id %>">
+                <button type="button" class="buttonProgres">
+                    In progress
+                </button>
+            </a>
+            <a href="/delete-bd-<%=selectFromDB[i].id %>">
+                <button type="button" class="buttonDelete">
+                    Delete
+                </button>
+            </a>
+        </div>
+        <% } %>
+    <% } %> 
+        <div class="feature-item-task">
+            <form action="/insert-task-nou" method="POST" target="_blank" class="Form">
+                <br>
+                <textarea cols="25" placeholder="Titlu Task" id="titlu" name="titlu"></textarea> <br><br>
+                <textarea rows="10" cols="25" placeholder="Descriere Task" id="descriere" name="descriere"></textarea><br><br>
+                <button type="submit" class="buttonProgres">Adauga Task</button>
+            </form> 
+        </div>
+    </div>
+    <div class="feature-item">
+        <h2>In progress</h2>
+        <p>Do not forget to finish this taks</p>
+        <% for(let i =0; i< selectFromDB.length; i++) { %>
+        <% if(selectFromDB[i].status == "In Progress") {%>
+        <div class="feature-item-task">
+
+            <h3><%= selectFromDB[i].titlu %> </h3>
+            <p><%= selectFromDB[i].descriere %></p>
+            <a href="/done-bd-<%=selectFromDB[i].id %>">
+                <button type="button" class="buttonDone">
+                    Done
+                </button>
+            </a>
+            <a href="/delete-bd-<%=selectFromDB[i].id %>">
+                <button type="button" class="buttonDelete">
+                    Delete
+                </button>
+            </a>
+        </div>
+        <% } %>
+    <% } %> 
+    </div>
+    <div class="feature-item">
+        <h2>Done</h2>
+        <p>Congrats you are done</p>
+        <% for(let i =0; i< selectFromDB.length; i++) { %>
+        <% if(selectFromDB[i].status == "Done") {%>
+        <div class="feature-item-task">
+            <h3><%= selectFromDB[i].titlu %> </h3>
+            <p><%= selectFromDB[i].descriere %></p>
+            <a href="/delete-bd-<%=selectFromDB[i].id %>">
+                <button type="button" class="buttonDelete">
+                    Delete
+                </button>
+            </a>
+        </div>
+        <% } %>
+        <% } %>
+    </div>
+</div>
+
+<a href="/logout">
+    <button type="button" class="Button">
+        Logout
+    </button>
+</a>
+<% } else { %>
+<a href="/autentificare"> <button type="button" class="Button">
+        Login to app
+    </button> </a>
+<% } %>

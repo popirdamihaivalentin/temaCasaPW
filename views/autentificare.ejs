@@ -1,0 +1,11 @@
+<form action="/verificare-autentificare" method="post" target="_blank" class="Form">
+    <% if(mesajEroare == null){ %>
+        <h1 class="Form-title">Login</h1>
+    <% } else { %>
+    <h1 class="Form-title">Login</h1>
+    <p style="color: red;">Credentiale incorecte</p>
+    <% } %>
+    <input type="text" placeholder="Username" id="name" name="name" class="Form-Input"></br>
+    <input type="password" placeholder="Password" id="pwd" name="pwd" class="Form-Input"></br>
+    <button type="submit" class = "Button"> Autentificare </button>
+</form>

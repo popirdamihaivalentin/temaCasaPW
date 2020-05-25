@@ -1,0 +1,63 @@
+[
+    {
+       "@id": "0",
+        "nume": "admin",
+        "password": "admin"
+    }, 
+    {
+        "@id": "1",
+        "nume": "Popescu",
+        "prenume": "Ion",
+        "password": "ionica",
+        "varsta": "23",
+        "adresa": {
+           "strada": "Veseliei",
+           "numar": "21",
+           "localitate": "Bihor",
+           "judet": "Olt",
+           "tara": "Japonia"
+        }
+     },
+     {
+        "@id": "3",
+        "nume": "Gica",
+        "prenume": "Petrescu",
+        "password": "petrica",
+        "varsta": "20",
+        "adresa": {
+           "strada": "Tristetii",
+           "numar": "0",
+           "localitate": "SadPlace",
+           "judet": "Tristete",
+           "tara": "North Coreea"
+        }
+     },
+     {
+        "@id": "3",
+        "nume": "Gigi",
+        "prenume": "Becali",
+        "password": "maybach",
+        "varsta": "88",
+        "adresa": {
+           "strada": "Oilor",
+           "numar": "1000",
+           "localitate": "Bheee",
+           "judet": "Mioara",
+           "tara": "Romania"
+        }
+     },
+     {
+        "@id": "4",
+        "nume": "Automatica",
+        "prenume": "Calculatoare",
+        "password": "restante",
+        "varsta": "54",
+        "adresa": {
+           "strada": "Restantei",
+           "numar": "40",
+           "localitate": "Examen",
+           "judet": "SfantulCinci",
+           "tara": "Inginerilor"
+        }
+     }
+  ]
