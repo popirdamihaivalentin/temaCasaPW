@@ -31,14 +31,6 @@ const client = new Client({
     port: 5432,
 });
 
-const queryCreateTable = `
-CREATE TABLE task (
-    id serial,
-    titlu varchar,
-    descriere varchar,
-    status varchar
-);`;
-
 const queryInserTable = `INSERT INTO task(
     titlu, descriere, status
     ) VALUES ('Titlu 1', 'o descriere foarte relevanta', 'ToDo'),
@@ -143,24 +135,6 @@ app.get('/logout', function (req, res, next) {
             }
         });
     }
-});
-
-
-app.get('/creare-bd', (req, res) => {
-    pgtools.createdb(config, "task", function (err, res) {
-        if (err) {
-            console.error(err);
-            process.exit(-1);
-        }
-        client.query(queryCreateTable, (err, res) => {
-            if (err) {
-                console.error(err);
-                return;
-            }
-            console.log('Table is successfully created');
-        });
-    });
-    res.redirect(302, '/');
 });
 
 app.get('/inserare-bd', (req, res) => {
